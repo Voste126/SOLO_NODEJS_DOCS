@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        #chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #messages {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+        
+        #form {
+            display: flex;
+        }
+        
+        #input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        /* Uncomment the following lines to style the send button */
+        /*
+        #form button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        */
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Chat App!</h1>
+    
+    <div id="chat-container">
+        <div id="messages">
+            <!-- Chat messages will be displayed here -->
+            <h4>Chat messages</h4>
+        </div>
+        
+        <form id="form">
+            <input type="text" id="input" placeholder="Type your message...">
+            <!-- <button type="submit">Send</button> -->
+        </form>
+    </div>
+    
+    <script src="./chat.js"></script>
+</body>
+</html>
