@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Fullstack Prints</title>
+    <style>
+        /* CSS styles for the product cards */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the cards horizontally */
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 300px; /* Fixed width for each card */
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product-card h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="products-container" id="products-container"></div>
+    <script>
+        const url = 'http://localhost:3000/products';
+        fetch(url)
+            .then(res => res.json())
+            .then(products => {
+                const productsContainer = document.getElementById('products-container');
+                products.forEach(product => {
+                    // Create product card element
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+                    
+                    // Create image element
+                    const imgElement = document.createElement('img');
+                    imgElement.src = product.img;
+                    productCard.appendChild(imgElement);
+                    
+                    // Create description element
+                    const descriptionElement = document.createElement('h2');
+                    descriptionElement.textContent = product.description;
+                    productCard.appendChild(descriptionElement);
+                    
+                    // Create link element
+                    const linkElement = document.createElement('a');
+                    linkElement.href = product.link;
+                    linkElement.textContent = 'View on Unsplash';
+                    productCard.appendChild(linkElement);
+                    
+                    // Append product card to container
+                    productsContainer.appendChild(productCard);
+                });
+            })
+            .catch(error => console.log(error));
+    </script>
+</body>
+</html>
+
